@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ubconstructionanddesign.com/sitemap.xml

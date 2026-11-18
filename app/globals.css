@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Palettes — RGB channel triplets so Tailwind opacity modifiers work. */
+:root, [data-palette='navy-gold'] {
+  --navy: 15 47 99;       --navy-deep: 10 33 73;    --navy-soft: 30 70 127;
+  --gold: 242 169 0;      --gold-dark: 201 138 0;   --gold-pale: 255 244 214;
+  --ink: 20 24 31;
+  --stone: 244 245 247;   --stone-line: 227 230 235; --stone-text: 91 100 114;
+}
+[data-palette='charcoal-brass'] {
+  --navy: 31 33 36;       --navy-deep: 20 21 23;    --navy-soft: 46 49 53;
+  --gold: 201 162 39;     --gold-dark: 163 130 28;  --gold-pale: 247 241 220;
+  --ink: 20 21 23;
+  --stone: 243 242 239;   --stone-line: 226 224 219; --stone-text: 94 92 87;
+}
+[data-palette='forest-sand'] {
+  --navy: 30 59 50;       --navy-deep: 20 42 35;    --navy-soft: 42 82 69;
+  --gold: 217 178 111;    --gold-dark: 180 143 76;  --gold-pale: 248 241 227;
+  --ink: 22 32 25;
+  --stone: 245 243 238;   --stone-line: 228 224 215; --stone-text: 92 97 89;
+}
+[data-palette='slate-terracotta'] {
+  --navy: 42 59 77;       --navy-deep: 28 41 56;    --navy-soft: 58 80 104;
+  --gold: 209 96 61;      --gold-dark: 168 72 42;   --gold-pale: 251 233 226;
+  --ink: 26 34 43;
+  --stone: 244 245 246;   --stone-line: 225 228 232; --stone-text: 90 101 114;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #fff; color: #14181f; -webkit-font-smoothing: antialiased; }
+section[id] { scroll-margin-top: 88px; }
+
+::selection { background: rgb(var(--gold)); color: rgb(var(--navy)); }
+:focus-visible { outline: 3px solid rgb(var(--gold)); outline-offset: 2px; }
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold text-navy-deep font-heading font-bold uppercase tracking-wide text-lg px-7 py-3.5 transition-colors hover:bg-gold-dark min-h-[48px];
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-navy text-navy font-heading font-bold uppercase tracking-wide text-lg px-7 py-3.5 transition-colors hover:bg-navy hover:text-white min-h-[48px];
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-white/70 text-white font-heading font-bold uppercase tracking-wide text-lg px-7 py-3.5 transition-colors hover:bg-white hover:text-navy min-h-[48px];
+  }
+  .eyebrow {
+    @apply font-heading font-semibold uppercase tracking-[0.2em] text-sm text-gold-dark;
+  }
+  .h-display {
+    @apply font-heading font-bold uppercase leading-[0.95] tracking-tight;
+  }
+  .field {
+    @apply w-full border border-stone-line bg-white px-4 py-3 font-body text-base text-ink placeholder:text-stone-text/60 focus:border-navy focus:outline-none focus:ring-2 focus:ring-gold/40 min-h-[48px];
+  }
+  .label {
+    @apply block font-heading font-semibold uppercase tracking-wider text-sm text-navy mb-1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
