@@ -1,0 +1,76 @@
+.commercial-home .hero {
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(ellipse at 82% 23%, #132a45 0%, #081629 60%);
+}
+
+.commercial-home .hero-plan-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to right, transparent 38%, #000 69%),
+              linear-gradient(to bottom, #000 36%, #0008 66%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.commercial-home .ub-plan {
+  position: absolute;
+  top: clamp(6px, 1.2vw, 24px);
+  right: max(-20px, calc((100% - 1380px) / 2));
+  width: clamp(420px, 63vw, 820px);
+  height: auto;
+  color: #a7c8e8;
+  opacity: .56;
+}
+
+.ub-plan__grid { opacity: .19; }
+.ub-plan__guides { opacity: .23; }
+.ub-plan__underprint { opacity: .28; }
+.ub-plan__walls { opacity: .77; }
+.ub-plan__fixtures { opacity: .59; }
+.ub-plan__dimensions { opacity: .63; }
+.ub-plan__notes { --ink-opacity: .75; opacity: var(--ink-opacity); }
+.ub-plan__stamp { color: #e9b856; }
+
+/* A faint plan is present on arrival; overlapping ink passes settle in place. */
+@media (prefers-reduced-motion: no-preference) {
+  .ub-plan__trace {
+    stroke-dasharray: 1;
+    animation: ub-trace-plan .91s cubic-bezier(.25,.33,.44,1) both;
+  }
+  .ub-plan__fixtures .ub-plan__trace { animation-delay: .18s; }
+  .ub-plan__dimensions .ub-plan__trace { animation-delay: .31s; }
+  .ub-plan__notes, .ub-plan__stamp, .ub-plan__fixtures rect {
+    animation: ub-ink-notes .53s ease-out .57s both;
+  }
+  .ub-plan__stamp { animation-delay: .72s; }
+}
+
+@keyframes ub-trace-plan {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes ub-ink-notes {
+  from { opacity: 0; }
+  to { opacity: var(--ink-opacity, 1); }
+}
+
+@media (max-width: 720px) {
+  .commercial-home .hero {
+    background: radial-gradient(ellipse at 100% 56%, #112743 0%, #081629 73%);
+  }
+  .commercial-home .hero-plan-backdrop {
+    mask-image: linear-gradient(to right, transparent 22%, #000 78%),
+                linear-gradient(to bottom, transparent 28%, #000 62%, transparent 98%);
+  }
+  .commercial-home .ub-plan {
+    top: auto;
+    bottom: 4%;
+    right: -24%;
+    width: clamp(425px, 120vw, 680px);
+    opacity: .24;
+  }
+}
