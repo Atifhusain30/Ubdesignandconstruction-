@@ -6,7 +6,12 @@ const html = readFileSync(resolve(out, 'index.html'), 'utf8').replace(/<script\b
 assert.match(html, /<h1>Commercial design<br[^>]*\/> &amp; construction\.<\/h1>/, 'commercial headline')
 const hero = html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1]
 assert.ok(hero, 'hero exists')
-assert.doesNotMatch(hero, /<img|<picture|<svg/, 'hero is photo and illustration free')
+assert.doesNotMatch(hero, /<img|<picture|<video/, 'hero is photo and video free')
+assert.match(hero, /^<div class="hero-plan-backdrop" aria-hidden="true"><svg class="ub-plan"[^>]*aria-hidden="true"[^>]*focusable="false"[\s\S]*?<\/svg><\/div><div class="wrap opening">/, 'the drafting layer sits behind the content, outside its layout grid')
+assert.match(hero, /class="ub-plan__underprint"/, 'faint wall lines are visible from the first frame')
+for (const layer of ['walls', 'fixtures', 'dimensions']) assert.ok(hero.includes(`ub-plan__${layer}`), `missing plan layer: ${layer}`)
+assert.match(hero, /CONCEPT STUDY/)
+assert.match(hero, /NOT FOR CONSTRUCTION/)
 assert.match(hero, /href="\/contact\/"[^>]*>Discuss your project/)
 assert.match(html, /href="\/gallery\/"[^>]*>View all projects/)
 for (const id of ['main', 'services', 'work', 'design', 'commercial', 'millwork', 'contact']) assert.ok(html.includes(`id="${id}"`), `missing anchor: ${id}`)

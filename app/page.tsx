@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { company, process as projectProcess } from '@/components/content'
+import HeroPlan from '@/components/HeroPlan'
 import './commercial-home.css'
+import './plan-motion.css'
 
 export const metadata: Metadata = {
   title: { absolute: 'Commercial Design-Build in Dallas–Fort Worth | UB Design and Construction' },
@@ -55,6 +57,7 @@ export default function Home() {
       </header>
       <main id="main" tabIndex={-1}>
         <section className="hero">
+          <div className="hero-plan-backdrop" aria-hidden="true"><HeroPlan /></div>
           <div className="wrap opening">
             <div>
               <p className="label"><span className="square" aria-hidden="true" /> {company.serviceArea}</p>
