@@ -6,7 +6,7 @@ export const company = {
   phone: '(972) 477-0778',
   phoneHref: 'tel:+19724770778',
   email: 'ubdesignandconstruction@gmail.com',
-  siteUrl: 'https://ubconstructionanddesign.com',
+  siteUrl: 'https://ubdesignandconstruction.com',
   serviceArea: 'Dallas–Fort Worth, Texas',
 }
 
