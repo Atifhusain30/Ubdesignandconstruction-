@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { company, process as projectProcess } from '@/components/content'
 import HeroPlan from '@/components/HeroPlan'
+import SocialLinks from '@/components/SocialLinks'
 import './commercial-home.css'
 import './plan-motion.css'
 
@@ -118,7 +119,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="wrap"><span>{company.name}</span><span>{company.serviceArea}</span></footer>
+      <footer className="wrap"><span>{company.name}</span><SocialLinks iconClass="h-[18px] w-[18px]" /><span>{company.serviceArea}</span></footer>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { company, services } from './content'
+import SocialLinks from './SocialLinks'
 
 export default function Footer() {
   return (
@@ -10,6 +11,7 @@ export default function Footer() {
           <Image src="/images/ub-logo-trimmed.png" alt="UB Design and Construction" width={110} height={80} className="h-16 w-auto bg-white p-1.5" />
           <p className="mt-4 font-heading uppercase tracking-widest text-gold font-semibold">{company.tagline}</p>
           <p className="mt-2 text-sm">Serving {company.serviceArea}.</p>
+          <SocialLinks className="mt-4 -ml-2.5" />
         </div>
         <div>
           <h3 className="font-heading font-bold uppercase tracking-wider text-white text-lg">Services</h3>

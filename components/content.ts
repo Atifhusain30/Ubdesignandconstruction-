@@ -8,6 +8,10 @@ export const company = {
   email: 'ubdesignandconstruction@gmail.com',
   siteUrl: 'https://ubdesignandconstruction.com',
   serviceArea: 'Dallas–Fort Worth, Texas',
+  social: [
+    { name: 'Instagram', href: 'https://www.instagram.com/ubdesignandconstruction', icon: 'instagram' },
+    { name: 'Facebook', href: 'https://www.facebook.com/p/UB-Design-Construction-61582434309672/', icon: 'facebook' },
+  ] as const,
 }
 
 export const services = [
