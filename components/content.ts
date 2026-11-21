@@ -3,8 +3,8 @@
 export const company = {
   name: 'UB Design and Construction',
   tagline: 'Commercial Design • Build',
-  phone: '(972) 477-0778',
-  phoneHref: 'tel:+19724770778',
+  phone: '(972) 477-0776',
+  phoneHref: 'tel:+19724770776',
   email: 'ubdesignandconstruction@gmail.com',
   siteUrl: 'https://ubdesignandconstruction.com',
   serviceArea: 'Dallas–Fort Worth, Texas',
