@@ -30,8 +30,9 @@ export const metadata: Metadata = {
     description: 'Design firm + construction company — we design the space, then we build it. Dallas–Fort Worth.',
     type: 'website',
     url: company.siteUrl,
-    images: ['/images/google/lounge.jpg'],
+    images: [{ url: '/images/og-logo.png', width: 1200, height: 630, alt: 'UB Design and Construction' }],
   },
+  twitter: { card: 'summary_large_image', images: ['/images/og-logo.png'] },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
